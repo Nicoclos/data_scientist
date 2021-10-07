@@ -23,37 +23,105 @@ puts "#{petit} est le plus petit @"
 # Quel est le plus court ?
 
 
-def method_name
-    
+def fivecara(journalists)
+    nombre=nbjournalists(journalists)
+    total=0
+    i=0
+    while i<nombre
+         number=journalists[i].size
+           
+        if number == 6
+            total+=1
+
+        end
+        i+=1
+    end
+    print total
 end
+
+puts "#{fivecara(journalists)} : c'est le nombre de @ ayant 5 caractères."
 # Combien y a t il de handle avec 5 caractères (@ n'est pas un caractères)
 
 
-def method_name
-    
+def maj(journalists)
+    nombre=nbjournalists(journalists)
+    i=0
+    total=0
+    lowerCase=0
+    while i<nombre
+        string=journalists[i]
+        lettre =string[1].count("A-Z")
+         
+         if lettre==1
+            
+            total+=1
+        end
+        i+=1
+    end
+    print total
 end
+
+puts "#{maj(journalists)} : c'est le nombre de @ commençant par une MAJUSCULE !"
 # Combien commencent par une majuscule (première lettre après @) ?
 
 
-def method_name
-    
+def alphabet(journalists)
+    sorted = journalists.sort { |a, b| a <=> b }
+    return sorted
 end
+
+alpha = alphabet(journalists)
+print alpha
+puts "C'EST TROP LOOONNNGG AAAAAAAAAHHHHHHHHHHH\n"
 # Trier par ordre alphabétique
 
 
-def method_name
-    
+def smalltobig(journalists)
+    print journalists.sort_by(&:length)
 end
+
+print "#{smalltobig(journalists)}\n"
+puts "Pas trop mal à la tête ? :s"
 # Trier par taille des handle (du plus petit au plus grand)
 
 
-def method_name
-    
+def pensesy(journalists)
+    nombre=nbjournalists(journalists)
+    i=0
+    while i<nombre
+        string =journalists[i]
+        if string == "@epenser"
+             position =i     
+        end
+        i+=1
+        
+    end
+    puts "Voici la position d'@epenser : #{position} #Bruce"
 end
+
+pensesy(journalists)
 # La position de epenser dans l'array
 
 
-def method_name
+def divide(journalists)
+    nombre=nbjournalists(journalists)
+    i=0
+    j=0
+    count =0
+    tableau =Array.new
+    while j<=journalists.map(&:length).max 
+        i=0
+        while i<nombre
+            if  journalists[i].size == j
+                  count +=1
+            end
+            i+=1
+        end
+        puts "Voici le nombre @ #{count} pour autant de caractère #{j}"
+        count =0
+        j+=1
+    end
     
 end
+divide(journalists)
 # répartition des handle par taille (nb de @ avec 1 caractères, 2 caractères, ...)
